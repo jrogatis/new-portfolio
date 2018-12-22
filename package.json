@@ -2,6 +2,21 @@
   "name": "new-portfolio",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js",
+    "fix": "npx eslint . --fix",
+    "lint": "npx eslint .",
+    "lint-verbose": "DEBUG=eslint:cli-engine eslint .",
+    "prettier": "npx prettier --config ./.prettierrc --write './**/*.js'"
+  },
+  "husky": {
+    "hooks": {
+      "precommit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
@@ -17,13 +32,6 @@
     "css-loader": "1.0.0",
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
-    "eslint": "5.6.0",
-    "eslint-config-react-app": "^3.0.5",
-    "eslint-loader": "2.1.1",
-    "eslint-plugin-flowtype": "2.50.1",
-    "eslint-plugin-import": "2.14.0",
-    "eslint-plugin-jsx-a11y": "6.1.2",
-    "eslint-plugin-react": "7.11.1",
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.0",
@@ -53,13 +61,22 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
   },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
+    "eslint": "5.6.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-react-app": "^3.0.5",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-loader": "2.1.1",
+    "eslint-plugin-flowtype": "2.50.1",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "7.11.1",
+    "husky": "^1.2.1",
+    "prettier": "^1.15.3"
   },
   "browserslist": [
     ">0.2%",
@@ -67,50 +84,15 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
+  "lint-staged": {
+    "src/**/*.{js,jsx,json}": [
+      "pretty-quick --staged",
+      "npm run fix",
+      "git add"
     ],
-    "resolver": "jest-pnp-resolver",
-    "setupFiles": [
-      "react-app-polyfill/jsdom"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
-    ],
-    "testEnvironment": "jsdom",
-    "testURL": "http://localhost",
-    "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-      "^.+\\.module\\.(css|sass|scss)$"
-    ],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
-    },
-    "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "web.ts",
-      "ts",
-      "web.tsx",
-      "tsx",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "react-app"
+    "*.yml": [
+      "yamllint",
+      "git add"
     ]
   }
 }

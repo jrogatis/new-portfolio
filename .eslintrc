@@ -1,0 +1,42 @@
+{
+  "extends": [
+    "eslint-config-react-app",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          [
+            "@",
+            "./src"
+          ]
+        ],
+        "extensions": [
+          ".js",
+          ".json"
+        ]
+      }
+    }
+  },
+    "rules": {
+      "prettier/prettier": "error",
+      "jsx-a11y/href-no-hash": 0,
+      "no-console": [
+        1,
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+      ],
+      "no-debugger": [ "warn" ],
+      "import/imports-first": ["error", "absolute-first"]
+    }
+  }
