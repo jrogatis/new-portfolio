@@ -1,5 +1,3 @@
-'use strict';
-
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -221,6 +219,12 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
+      '@': path.resolve(__dirname, '../src'),
+      utils: path.resolve(__dirname, '../src/utils'),
+      theme: path.resolve(__dirname, '../src/theme'),
+      static: path.resolve(__dirname, '../src/static'),
+      modules: path.resolve(__dirname, '../src/modules'),
+      store: path.resolve(__dirname, '../src/store'),
     },
     plugins: [
       // Adds support for installing with Plug'n'Play, leading to faster installs and adding

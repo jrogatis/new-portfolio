@@ -15,6 +15,26 @@
           [
             "@",
             "./src"
+          ],
+          [
+            "utils",
+            "./src/utils"
+          ],
+          [
+            "theme",
+            "./src/theme"
+          ],
+          [
+            "static",
+            "./src/static"
+          ],
+          [
+            "modules",
+            "./src/modules"
+          ],
+          [
+            "store",
+            "./src/store"
           ]
         ],
         "extensions": [
