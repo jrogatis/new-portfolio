@@ -1,9 +1,9 @@
-import { lightGray, mainGray, darkGray, white } from './colors';
+import { lightGray, darkGray, white, black } from './colors';
 
 export default {
   primary: {
     light: lightGray,
-    main: mainGray,
+    main: black,
     dark: darkGray,
     contrastText: lightGray,
   },

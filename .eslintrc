@@ -43,6 +43,10 @@
           [
             "containers",
             "./src/containers"
+          ],
+          [
+            "components",
+            "./src/components"
           ]
         ],
         "extensions": [

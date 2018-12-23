@@ -1,5 +1,5 @@
 export default {
   useNextVariants: true,
-  fontSize: '1rem',
+  fontSize: '1em',
   fontFamily: 'sans-serif',
 };
