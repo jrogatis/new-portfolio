@@ -35,6 +35,14 @@
           [
             "store",
             "./src/store"
+          ],
+          [
+            "router",
+            "./src/router"
+          ],
+          [
+            "containers",
+            "./src/containers"
           ]
         ],
         "extensions": [

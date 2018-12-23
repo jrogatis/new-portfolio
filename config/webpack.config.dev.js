@@ -1,5 +1,3 @@
-'use strict';
-
 const fs = require('fs');
 const path = require('path');
 const resolve = require('resolve');
@@ -155,6 +153,8 @@ module.exports = {
       static: path.resolve(__dirname, '../src/static'),
       modules: path.resolve(__dirname, '../src/modules'),
       store: path.resolve(__dirname, '../src/store'),
+      router: path.resolve(__dirname, '../src/router'),
+      containers: path.resolve(__dirname, '../src/containers'),
     },
     plugins: [
       // Adds support for installing with Plug'n'Play, leading to faster installs and adding
