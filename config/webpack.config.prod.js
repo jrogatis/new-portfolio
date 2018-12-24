@@ -228,6 +228,7 @@ module.exports = {
       router: path.resolve(__dirname, '../src/router'),
       containers: path.resolve(__dirname, '../src/containers'),
       components: path.resolve(__dirname, '../src/components'),
+      static: path.resolve(__dirname, '../src/static'),
     },
     plugins: [
       // Adds support for installing with Plug'n'Play, leading to faster installs and adding

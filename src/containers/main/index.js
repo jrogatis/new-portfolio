@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
-import { withStyles, Grid, Collapse } from '@material-ui/core';
+import React, { Component, Fragment } from 'react';
+import { withStyles, Grid, Collapse, CssBaseline } from '@material-ui/core';
 import PublicRouter from 'router/publicRoutes';
 import AppBar from 'components/AppBar';
+import Footer from 'components/Footer';
 
 const styles = theme => ({
   layoutRoot: {
-    width: '100%',
-    position: 'relative',
+    maxWidth: '1440px',
     zIndex: 1,
-    overflow: 'hidden',
-    backgroundColor: 'blue',
+    backgroundColor: 'red',
+    maxHeight: '75vh',
   },
   contentPage: {
     width: '100%',
-    // height: 'calc(100vh - 100px)',
-    overflow: 'auto',
+    marginTop: '-35px',
   },
   appBarWrapper: {
     minHeight: '35px',
     backgroundColor: 'transparent',
-    width: '100%',
     zIndex: 9999,
+    overflow: 'auto',
+  },
+  root: {
+    width: '100%',
   },
 });
 
@@ -39,20 +41,34 @@ class Home extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Grid container diretion="column" className={classes.layoutRoot}>
-        <div
-          onMouseEnter={this.onMouseEnterHandler}
-          className={classes.appBarWrapper}
-          onMouseLeave={this.onMouseLeaveHandler}
+      <Fragment>
+        <CssBaseline />
+        <Grid
+          container
+          justify="center"
+          alignItems="center"
+          direction="column"
+          className={classes.root}
         >
-          <Collapse in={this.state.appBarVisible}>
-            <AppBar />
-          </Collapse>
-        </div>
-        <Grid item xs={12} className={classes.contentPage}>
-          <PublicRouter />
+          <Grid item xs={12} container direction="column" className={classes.layoutRoot}>
+            <Grid
+              item
+              xs={12}
+              onMouseEnter={this.onMouseEnterHandler}
+              className={classes.appBarWrapper}
+              onMouseLeave={this.onMouseLeaveHandler}
+            >
+              <Collapse in={this.state.appBarVisible}>
+                <AppBar />
+              </Collapse>
+            </Grid>
+            <Grid item xs={12} className={classes.contentPage}>
+              <PublicRouter />
+            </Grid>
+          </Grid>
         </Grid>
-      </Grid>
+        <Footer />
+      </Fragment>
     );
   }
 }

@@ -47,6 +47,10 @@
           [
             "components",
             "./src/components"
+          ],
+          [
+            "static",
+            "./src/static"
           ]
         ],
         "extensions": [

@@ -7,8 +7,9 @@ const styles = theme => ({
     padding: '0 10px',
     boxShadow: 'none',
     width: '100%',
-    backgroundColor: 'transparent',
     minHeight: '35px',
+    borderBottom: '1px solid black',
+    backgrounColor: 'transparent',
   },
   version: {
     marginLeft: 10,

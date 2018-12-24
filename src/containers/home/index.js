@@ -1,33 +1,37 @@
 import React from 'react';
-import { withStyles, Grid } from '@material-ui/core';
+import { withStyles, Grid, Paper } from '@material-ui/core';
+import imgLeft from 'static/img/skyEsqV5.png';
+import imgRight from 'static/img/skyDir.png';
 
 const styles = theme => ({
   layoutRoot: {
     width: '100%',
-    position: 'relative',
-    zIndex: 1,
-    overflow: 'hidden',
-    backgroundColor: 'blue',
-  },
-  contentPage: {
-    width: '100%',
-    height: 'calc(100vh - 100px)',
-    overflow: 'auto',
-  },
-  containerPage: {
-    backgroundColor: 'transparent',
-    padding: '25px',
-    width: '100%',
-    maxWidth: '1440px',
-    margin: '0 auto',
+    minHeight: 'calc(100vh - 35px)',
   },
 });
 
 const Home = ({ classes }) => (
-  <Grid container diretion="column" className={classes.layoutRoot}>
-    <Grid item xs={12} className={classes.contentPage}>
-      Home
-    </Grid>
+  <Grid item xs={12} container className={classes.layoutRoot}>
+    <Grid
+      item
+      xs={6}
+      style={{
+        backgroundImage: `url(${imgLeft})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'top right',
+        backgroundSize: 'contain',
+      }}
+    />
+    <Grid
+      item
+      xs={6}
+      style={{
+        backgroundImage: `url(${imgRight})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'top left',
+        backgroundSize: 'contain',
+      }}
+    />
   </Grid>
 );
 
